@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
  
-        Ну здарова bandits!123
+        Ну здарова bandits!1234
        
     </div>
   );
