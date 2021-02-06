@@ -1,36 +1,47 @@
-.header{
-    display:flex;
+.header {
     overflow: hidden;
-    background-color: dimgrey;
-    padding: 25px 12px;
+    background-color: rgb(93, 200, 233);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
-.hright{
-    float:right;
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-.header a{
-    float:left;
-    color:black;
-    text-align: center;
-    padding: 13px;
+
+.logo_container {
+    flex: 1 1 60%;
+}
+
+.logo {
+    float: left;
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    font-style: italic;
+    padding-left: 30px;
+}
+
+.button_container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    float: right;
+    border: solid 2px white;
+    border-radius: 5px;
+    margin-right: 15px;
+    font-size: 23px;
+    padding-top: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
     text-decoration: none;
-    font-size: 20px;
-    line-height: 25px;
-    border-radius: 3px;
+    color: whitesmoke;
+    font-style: bold;
+    background-color: rgb(52, 175, 212);
 }
-.logo_container{
-    flex: 1 1 70%;
-}
-.header a.logo{
-    font-size: 20px;
-    font-weight: bold;
-}
-.header a:hover{
-    background-color: rgb(132, 137, 141);
-    color:white;
-}
-.header a.button_active{
-    background-color: rgb(182, 34, 71);
-    color:white;
-}
-
