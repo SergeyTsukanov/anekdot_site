@@ -4,6 +4,7 @@
     background-color: dimgrey;
     padding: 25px 12px;
 }
+
 .hright{
     float:right;
 }
@@ -16,6 +17,9 @@
     font-size: 20px;
     line-height: 25px;
     border-radius: 3px;
+}
+.logo_container{
+    flex: 1 1 70%;
 }
 .header a.logo{
     font-size: 20px;
