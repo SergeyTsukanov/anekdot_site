@@ -7,8 +7,8 @@ export const Header = (props) => {
                 <h1 class={styles.logo}>Jokes.com</h1>
             </div>
             <div className={styles.button_container}>
-                <a class={styles.button} href="#signin">Sign In</a>
-                <a class={styles.button} href="signup">Sign Up</a>
+                <a class={styles.button_log_in} href="#signin">Log In</a>
+                <a class={styles.button_sign_up} href="signup">Sign Up</a>
             </div>
         </div>
     </header>
