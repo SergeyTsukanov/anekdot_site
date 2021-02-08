@@ -1,0 +1,35 @@
+.post{
+    
+    width: 40%;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+
+.post_container{
+    padding: 20px;
+    padding-bottom: 10px;
+}
+
+.post_header{
+ display: flex;
+ justify-content: space-between;
+}
+.post_title{
+    font-weight: bold;
+}
+
+.post_body{
+    word-wrap: break-word;
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+.post_footer{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+ 
+.post_footer_element{
+    cursor: pointer;
+}
