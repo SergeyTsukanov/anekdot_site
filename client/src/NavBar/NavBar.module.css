@@ -1,0 +1,45 @@
+
+.NavBar{
+     flex-shrink: 0;
+    overflow: auto;
+    background-color: rgb(151, 202, 226);
+    border-radius: 10px;
+}
+.NavBar_container{
+    
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.NavBar_header{
+    display: flex;
+    align-items: center;
+}
+
+.NavBar_home{
+     
+    align-items: center;
+}
+
+.ul_style{
+    list-style: none;
+    padding-right: 38px;
+    padding-bottom: 50px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: normal;
+    
+}
+
+.margin_tags{
+    margin: 15px 0 15px 15px;
+    
+}
+
+
+.link{
+    text-decoration: none;
+}
+.active_link{
+   color: white;
+}

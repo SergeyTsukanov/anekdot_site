@@ -1,0 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+.content{
+    margin-top: 50px;
+    display: flex;
+}
+
+.container {
+  
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
