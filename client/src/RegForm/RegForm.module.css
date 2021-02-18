@@ -1,0 +1,38 @@
+.RegForm{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    border: solid 2px rgb(171, 199, 216);
+    border-radius: 10px;
+    background-color: rgb(152, 217, 236);
+    padding: 30px;
+
+}
+
+.label_name{
+    display: block;
+    justify-content: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+}
+
+.inputs{
+    display:block;
+    border: solid 2px rgb(71, 134, 158);
+    border-radius: 7px;
+    background-color: rgb(205, 235, 245);
+}
+
+.next_button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float:right;
+    display: block;
+    border: solid 1px rgb(70, 100, 150);
+    border-radius: 7px;
+    background-color: rgb(163, 190, 226);
+}

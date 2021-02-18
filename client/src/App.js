@@ -2,8 +2,10 @@ import { Header } from "./Header/Header.jsx"
 import { BrowserRouter, NavLink, Route, Switch } from "react-router-dom";
 import { MainPage } from "./MainPage/MainPage.jsx"
 import { AboutPage } from "./About/AboutPage.jsx";
+import {RegForm} from "./RegForm/RegForm.jsx"
 import { NavBar } from "./NavBar/NavBar.jsx"
 import styles from "./App.module.css"
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
 
               <Route path="/" exact component={MainPage} />
               <Route path="/about" component={AboutPage} />
+              <Route path ="/signup" component={RegForm} />
 
             </Switch>
           </div>
