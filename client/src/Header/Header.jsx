@@ -14,10 +14,10 @@ export const Header = (props) => {
         </div>
         <div className={styles.button_container}>
           <a className={styles.button_log_in} href="#signin">
-            Log In
+            Log in
           </a>
           <a className={styles.button_sign_up} href="signup">
-            Sign Up
+            Sign up
           </a>
         </div>
       </div>

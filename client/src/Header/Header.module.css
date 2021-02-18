@@ -33,14 +33,14 @@
 
 .button_log_in {
     float: right;
-    border: solid 2px white;
+    border: solid 1px white;
     border-radius: 25px;
     margin-right: 15px;
-    font-size: 20px;
-    padding-top: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 6px;
+    font-size: 18px;
+    padding-top: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 8px;
     text-decoration: none;
     color: whitesmoke;
     font-weight: 600;
@@ -48,17 +48,17 @@
 }
 .button_sign_up {
     float: right;
-    border: solid 2px white;
+    border: solid 1px white;
     border-radius: 25px;
     margin-right: 15px;
-    font-size: 20px;
-    padding-top: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-bottom: 6px;
+    font-size: 18px;
+    padding-top: 6px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 8px;
     text-decoration: none;
     color: rgb(93, 200, 233);
-    font-weight: 600;
+    font-weight: 700;
     background-color:white;
 }
 .button_log_in:hover{
@@ -66,5 +66,5 @@
 }
 .button_sign_up:hover{
     background-color:rgb(243, 243, 243);
-    border: solid 2px rgb(243, 243, 243);
+    border: solid 1px rgb(243, 243, 243);
 }
