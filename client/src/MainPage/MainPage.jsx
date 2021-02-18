@@ -9,7 +9,7 @@ export const MainPage =(props) =>{
     const [posts,setPosts] = useState("")
     useEffect(()=>{
         
-            fetch("/text" )
+            fetch("/posts/text" )
              
                 .then(data => data.text()
                     
