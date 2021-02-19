@@ -1,7 +1,7 @@
 
 .NavBar{
-     flex-shrink: 0;
-    overflow: auto;
+    flex: 0 0 25%;
+    height:100%;
     background-color: rgb(151, 202, 226);
     border-radius: 10px;
 }
@@ -10,17 +10,10 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
-.NavBar_header{
-    display: flex;
-    align-items: center;
-}
-
-.NavBar_home{
-     
-    align-items: center;
-}
+ 
 
 .ul_style{
     list-style: none;

@@ -23,6 +23,7 @@ function App() {
               <Route path ="/signup" component={RegForm} />
 
             </Switch>
+            <div className ={styles.right_panel}></div>
           </div>
         </div>
       </div>
