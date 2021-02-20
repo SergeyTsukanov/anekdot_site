@@ -1,38 +1,27 @@
-
-.NavBar{
+.NavBar_container {
     flex: 0 0 25%;
-    height:100%;
-    background-color: rgb(151, 202, 226);
-    border-radius: 10px;
-}
-.NavBar_container{
-    
-    display:flex;
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    
+    align-items: left;
 }
 
- 
-
-.ul_style{
-    list-style: none;
-    padding-right: 38px;
-    padding-bottom: 50px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.ul_style {
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-weight: normal;
-    
+    font-size: 18px;
+    margin-top: 0px;
+}
+.margin_tags {
+    margin-top: 20px;
 }
 
-.margin_tags{
-    margin: 15px 0 15px 15px;
-    
+.margin_tags:first-child {
+    margin-top: 0px;
 }
 
-
-.link{
+.link {
     text-decoration: none;
 }
-.active_link{
-   color: white;
+.active_link {
+    color: blue;
 }
