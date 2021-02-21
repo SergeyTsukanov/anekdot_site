@@ -4,7 +4,9 @@ import { MainPage } from "./MainPage/MainPage.jsx"
 import { AboutPage } from "./About/AboutPage.jsx";
 import {RegForm} from "./RegForm/RegForm.jsx"
 import { NavBar } from "./NavBar/NavBar.jsx"
+import { AddJokeForm } from "./AddJokeForm/AddJokeForm.jsx";
 import styles from "./App.module.css"
+
 
 
 function App() {
@@ -21,7 +23,7 @@ function App() {
               <Route path="/" exact component={MainPage} />
               <Route path="/about" component={AboutPage} />
               <Route path ="/signup" component={RegForm} />
-
+               <Route path ="/addjoke" component ={AddJokeForm} />
             </Switch>
             <div className ={styles.right_panel}></div>
           </div>
