@@ -22,7 +22,10 @@ export const AddJokeForm  =(props)=>{
         },
         validate,
         onSubmit: values=>{
-            /*fetch("/posts/addjoke") */
+             fetch("/posts/addjoke",{method:'POST', headers: {'Content-Type': 'application/json'},
+             body: JSON.stringify( formik.values)  })
+             .then(res =>console.log(res))
+             .catch(res =>console.log(res))  
             console.log(formik.values)
             formik.resetForm()
         }

@@ -17,6 +17,7 @@ jokesRoutes
     })
     .post("/addjoke", bodyParser.json(), (req, res) => {
 
+        console.log( req.body )
         const joke1 = new Posts({
             text: req.body.text,
             author: "Anonym",

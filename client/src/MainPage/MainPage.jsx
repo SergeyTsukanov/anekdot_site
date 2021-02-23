@@ -31,7 +31,7 @@ export const MainPage = (props) => {
         return <div>Loading</div>
     return <div className={styles.content}>
      
-        {posts.map((post) =>  <Post text={post.text} />   )}
+        {posts.map((post) =>  <Post text={post.text} title ={post.title}/>   )}
 
     </div>
 }
