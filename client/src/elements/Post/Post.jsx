@@ -8,7 +8,7 @@ export const Post = (props) => {
         <div className={styles.post_container}>
             <div className={styles.post_header}>
                 <div className={styles.post_title}>{props.title}</div>
-                <div className={styles.post_author}>Author</div>
+                <div className={styles.post_author}>type:{props.type}</div>
             </div>
             <div className={styles.post_body}>
                {props.text}

@@ -35,6 +35,11 @@ export const NavBar = (props) => {
                         Suggestions
                     </NavLink>
                 </li>
+                <li className={styles.margin_tags}>
+                    <NavLink to="addjoke" className={styles.link} activeClassName={styles.active_link}>
+                        AddJoke
+                    </NavLink>
+                </li>
             </ul>
 
         </div>

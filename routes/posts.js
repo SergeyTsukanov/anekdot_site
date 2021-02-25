@@ -21,7 +21,7 @@ jokesRoutes
         const joke1 = new Posts({
             text: req.body.text,
             author: "Anonym",
-            type: "undefined",
+            type: req.body.type,
             title: req.body.title
         })
         Posts.create(joke1, (err) => {
