@@ -7,6 +7,8 @@ import { Searchbar } from "./SearchBar/SearchBar";
 
 export const MainPage = (props) => {
 
+    const [filter, setFilter] = useState({}) 
+
     const [posts, setPosts] = useState("")
     const [error, setError] = useState("")
     useEffect(() => {
@@ -29,9 +31,11 @@ export const MainPage = (props) => {
     if (!posts)
         return <div>Loading</div>
     return <div className={styles.content}>
-            <Searchbar/>
+            <Searchbar setFilter = {setFilter}/>
             <div className ={styles.posts}>
-        {posts.map((post) =>  <Post text={post.text} title ={post.title} type = {post.type}/>).reverse()}
+        {posts
+        .filter(post=>post.type.includes(filter.type)&& post.title.includes(filter.title))
+        .map((post) =>  <Post text={post.text} title ={post.title} type = {post.type}/>).reverse()}
         </div>
     </div>
 }
