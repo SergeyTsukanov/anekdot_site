@@ -1,10 +1,11 @@
-import { Header } from "./Header/Header.jsx"
+import { Header } from "./components/Header/Header.jsx"
 import { BrowserRouter, NavLink, Route, Switch } from "react-router-dom";
-import { MainPage } from "./MainPage/MainPage.jsx"
-import { AboutPage } from "./About/AboutPage.jsx";
+import { MainPage } from "./components/MainPage/MainPage.jsx"
+import { AboutPage } from "./components/About/AboutPage.jsx";
 import {RegForm} from "./Forms/RegForm/RegForm.jsx"
-import { NavBar } from "./NavBar/NavBar.jsx"
+import { NavBar } from "./components/NavBar/NavBar.jsx"
 import { AddJokeForm } from "./Forms/AddJokeForm/AddJokeForm.jsx";
+import {LogInForm} from "./Forms/LogInForm/LogInForm.jsx"
 import styles from "./App.module.css"
 
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/" exact component={MainPage} />
               <Route path="/about" component={AboutPage} />
               <Route path ="/signup" component={RegForm} />
+              < Route path ="/login" component ={LogInForm}/>
                <Route path ="/addjoke" component ={AddJokeForm} />
             </Switch>
             <div className ={styles.right_panel}></div>

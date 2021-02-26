@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Post } from "../elements/Post/Post";
+import { Post } from "../../elements/Post/Post";
 import styles from "./MainPage.module.css";
-import { Searchbar } from "./SearchBar/SearchBar";
+import { Searchbar } from "../SearchBar/SearchBar";
 
 
 
 export const MainPage = (props) => {
 
-    const [filter, setFilter] = useState({}) 
+   
 
     const [posts, setPosts] = useState("")
     const [error, setError] = useState("")
@@ -26,6 +26,8 @@ export const MainPage = (props) => {
                 setError(e)
             })
     }, [])
+
+     const [filter, setFilter] = useState({title:"",type:""}) 
     if(error)
         return <div>error</div>
     if (!posts)

@@ -8,7 +8,9 @@ const validate = values => {
   if (!values.text) {
     errors.text = "requied"
   }
-
+  if(!values.type){
+    errors.text = "requied"
+  }
   return errors;
 
 }
@@ -16,13 +18,13 @@ const validate = values => {
 
 export const AddJokeForm = (props) => {
 
-  const themes = ["","Армейский", "Студенческий","Про вовочку"]
+  const themes = ["", "Армейский", "Студенческий","Про вовочку"]
 
   const formik = useFormik({
     initialValues: {
       text: '',
       title: '',
-      type: '1'
+      type: ''
     },
     validate,
     onSubmit: values => {
@@ -62,12 +64,13 @@ export const AddJokeForm = (props) => {
     <label className={styles.label_name}  >
       Enter type:
         <select name="type"
-        onChange={formik.handleChange}>
+        onChange={formik.handleChange} value = {formik.values.type}>
       {themes.map(theme =><option value ={`${theme}`}>{theme}</option>)}
         </select>
     </label>
-
-
+    <div>
+    {formik.touched.type && formik.errors.type ? <div>{formik.errors.type}</div> : null}
+    </div>
     <div>
       <input type="submit" value="Add" />
     </div>
