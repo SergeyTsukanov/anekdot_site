@@ -80,7 +80,6 @@ export const RegForm = (props) => {
         <div className={styles.form_correct}>
           1111
           </div>}
-
       <button className={styles.button_submit} type="submit">Sign</button>
     </form>
   );
