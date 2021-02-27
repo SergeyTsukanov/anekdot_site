@@ -2,10 +2,10 @@ import { Header } from "./components/Header/Header.jsx"
 import { BrowserRouter, NavLink, Route, Switch } from "react-router-dom";
 import { MainPage } from "./components/MainPage/MainPage.jsx"
 import { AboutPage } from "./components/About/AboutPage.jsx";
-import {RegForm} from "./Forms/RegForm/RegForm.jsx"
+import {RegForm} from "./Forms/RegForm.jsx"
 import { NavBar } from "./components/NavBar/NavBar.jsx"
-import { AddJokeForm } from "./Forms/AddJokeForm/AddJokeForm.jsx";
-import {LogInForm} from "./Forms/LogInForm/LogInForm.jsx"
+import { AddJokeForm } from "./Forms/AddJokeForm.jsx";
+import {LogInForm} from "./Forms/LogInForm.jsx"
 import styles from "./App.module.css"
 
 

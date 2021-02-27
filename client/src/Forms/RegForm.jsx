@@ -1,4 +1,4 @@
-import styles from "./RegForm.module.css";
+import styles from "./Form.module.css";
 import { useFormik } from "formik"
 
 
@@ -33,46 +33,55 @@ export const RegForm = (props) => {
 
 
   return (
-    <form className={styles.RegForm} onSubmit ={formik.handleSubmit}>
+    <form className={styles.Form} onSubmit={formik.handleSubmit}>
 
       <label className={styles.label_name}>
         Enter e-mail:
         <input className={styles.inputs}
           type="text"
           name='email'
-         
+
           value={formik.values.email}
           onChange={formik.handleChange} />
       </label>
-      {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
+      {formik.touched.email && formik.errors.email ?
+        <div className={styles.form_error}>{formik.errors.email}</div> :
+        <div className={styles.form_correct}>
+          1111
+          </div>}
 
       <label className={styles.label_name}>
         Enter Nickname:
         <input className={styles.inputs}
           type="text"
           name="nickname"
-          
+
           onChange={formik.handleChange}
           value={formik.values.nickname} />
       </label>
 
-       {formik.touched.nickname && formik.errors.nickname ? <div>{formik.errors.nickname}</div> : null}
+      {formik.touched.nickname && formik.errors.nickname ?
+        <div className={styles.form_error}>{formik.errors.nickname}</div> :
+        <div className={styles.form_correct}>
+          1111
+          </div>}
 
       <label className={styles.label_name}>
         Enter password:
-        <input className={styles.inputs} 
-        type="text"      
-        name="password"
-        
-        onChange={formik.handleChange}
-        value={formik.values.password} />
+        <input className={styles.inputs}
+          type="text"
+          name="password"
+
+          onChange={formik.handleChange}
+          value={formik.values.password} />
       </label>
-      {formik.touched.password && formik.errors.password ? <div>{formik.errors.password}</div> : null}
-    
-      <div>
-        <input className={styles.next_button} type="submit" value="Next" />
-      </div>
-      <div className={styles.back_button}> </div>
+      {formik.touched.password && formik.errors.password ?
+        <div className={styles.form_error}>{formik.errors.password}</div> :
+        <div className={styles.form_correct}>
+          1111
+          </div>}
+
+      <button className={styles.button_submit} type="submit">Sign</button>
     </form>
   );
 };

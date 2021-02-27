@@ -1,5 +1,5 @@
 import { useFormik } from "formik"
-import styles from "./AddJokeForm.module.css"
+import styles from "./Form.module.css"
 const validate = values => {
   const errors = {}
   if (!values.title) {
@@ -39,7 +39,7 @@ export const AddJokeForm = (props) => {
     }
   })
 
-  return <form className={styles.JokeForm} onSubmit={formik.handleSubmit}>
+  return <form className={styles.Form} onSubmit={formik.handleSubmit}>
     <label className={styles.label_name} >
       Enter title:
         <input className={styles.inputs}
@@ -48,7 +48,7 @@ export const AddJokeForm = (props) => {
         onChange={formik.handleChange}
         value={formik.values.title} />
     </label>
-    {formik.touched.title && formik.errors.title ? <div>{formik.errors.title}</div> : null}
+    {formik.touched.title && formik.errors.title ? <div>{formik.errors.title}</div> : <div className={styles.form_correct}>1111</div>}
 
     <label className={styles.label_name}  >
       Enter text:
@@ -58,7 +58,7 @@ export const AddJokeForm = (props) => {
         onChange={formik.handleChange}
         value={formik.values.text} />
     </label>
-    {formik.touched.text && formik.errors.text ? <div>{formik.errors.text}</div> : null}
+    {formik.touched.text && formik.errors.text ? <div>{formik.errors.text}</div> : <div className={styles.form_correct}>1111</div>}
 
 
     <label className={styles.label_name}  >
@@ -69,10 +69,8 @@ export const AddJokeForm = (props) => {
         </select>
     </label>
     <div>
-    {formik.touched.type && formik.errors.type ? <div>{formik.errors.type}</div> : null}
+    {formik.touched.type && formik.errors.type ? <div>{formik.errors.type}</div> : <div className={styles.form_correct}>1111</div>}
     </div>
-    <div>
-      <input type="submit" value="Add" />
-    </div>
+   <button className={styles.button_submit} type="submit">Add</button>
   </form>
 }
