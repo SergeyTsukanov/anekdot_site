@@ -69,7 +69,7 @@ export const RegForm = (props) => {
       <label className={styles.label_name}>
         Enter password:
         <input className={styles.inputs}
-          type="text"
+          type="password"
           name="password"
 
           onChange={formik.handleChange}

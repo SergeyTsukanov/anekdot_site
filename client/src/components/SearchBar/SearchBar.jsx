@@ -3,9 +3,12 @@ import { GrFormSearch } from "react-icons/gr";
 import { DropDownMenu } from "../../elements/DropDownMenu/DropDownMenu"
 import { useFormik } from "formik";
 import { AiOutlineClear } from "react-icons/ai";
-
+import { useContext } from "react";
+import { MyContext } from "../../context";
+ 
 export const Searchbar = (props) => {
-    const themes = ["", "Армейский", "Студенческий", "Про вовочку"]
+   
+    const themes = useContext(MyContext)
 
     const formik = useFormik({
         initialValues: {

@@ -7,12 +7,14 @@ import { NavBar } from "./components/NavBar/NavBar.jsx"
 import { AddJokeForm } from "./Forms/AddJokeForm.jsx";
 import {LogInForm} from "./Forms/LogInForm.jsx"
 import styles from "./App.module.css"
-
+import { createContext  } from "react";
+import {MyContext} from "./context"
 
 
 function App() {
   
   return (
+    <MyContext.Provider value = {["", "Армейский", "Студенческий"]}>
     <BrowserRouter>
       <div className="App">
 
@@ -33,6 +35,7 @@ function App() {
         </div>
       </div>
     </BrowserRouter>
+    </MyContext.Provider>
   );
 }
 

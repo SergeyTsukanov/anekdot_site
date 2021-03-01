@@ -12,7 +12,7 @@ export const MainPage = (props) => {
     const [error, setError] = useState("")
     const [filter, setFilter] = useState({ title: "", type: "" })
 
-
+    
 
 
     return <div className={styles.content}>

@@ -1,5 +1,8 @@
 import { useFormik } from "formik"
+import { useContext } from "react"
+import { MyContext } from "../context"
 import styles from "./Form.module.css"
+ 
 const validate = values => {
   const errors = {}
   if (!values.title) {
@@ -8,8 +11,8 @@ const validate = values => {
   if (!values.text) {
     errors.text = "requied"
   }
-  if(!values.type){
-    errors.text = "requied"
+  if (!values.type) {
+    errors.type = "requied"
   }
   return errors;
 
@@ -17,8 +20,8 @@ const validate = values => {
 
 
 export const AddJokeForm = (props) => {
-
-  const themes = ["", "Армейский", "Студенческий","Про вовочку"]
+ 
+  const themes = useContext(MyContext)
 
   const formik = useFormik({
     initialValues: {
@@ -48,29 +51,35 @@ export const AddJokeForm = (props) => {
         onChange={formik.handleChange}
         value={formik.values.title} />
     </label>
-    {formik.touched.title && formik.errors.title ? <div>{formik.errors.title}</div> : <div className={styles.form_correct}>1111</div>}
+    {formik.touched.title && formik.errors.title ?
+      <div className = {styles.form_error}>{formik.errors.title}</div> :
+      <div className={styles.form_correct}>1111</div>}
 
     <label className={styles.label_name}  >
       Enter text:
-        <input className={styles.inputs}
+        <textarea className={styles.textArea}
         type="text"
         name="text"
         onChange={formik.handleChange}
         value={formik.values.text} />
     </label>
-    {formik.touched.text && formik.errors.text ? <div>{formik.errors.text}</div> : <div className={styles.form_correct}>1111</div>}
+    {formik.touched.text && formik.errors.text ?
+      <div className = {styles.form_error}>{formik.errors.text}</div> :
+      <div className={styles.form_correct}>1111</div>}
 
 
     <label className={styles.label_name}  >
       Enter type:
         <select name="type"
-        onChange={formik.handleChange} value = {formik.values.type}>
-      {themes.map(theme =><option value ={`${theme}`}>{theme}</option>)}
-        </select>
+        onChange={formik.handleChange} value={formik.values.type}>
+        {themes.map(theme => <option value={`${theme}`}>{theme}</option>)}
+      </select>
     </label>
-    <div>
-    {formik.touched.type && formik.errors.type ? <div>{formik.errors.type}</div> : <div className={styles.form_correct}>1111</div>}
-    </div>
-   <button className={styles.button_submit} type="submit">Add</button>
+
+    { formik.touched.type && formik.errors.type ?
+      <div className = {styles.form_error}>{formik.errors.type}</div> :
+      <div className={styles.form_correct}>1111</div>}
+
+    <button className={styles.button_submit} type="submit">Add</button>
   </form>
 }
