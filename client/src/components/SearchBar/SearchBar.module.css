@@ -1,4 +1,57 @@
  .pannel{
-     display: flex;
-     justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+ }
+
+ .pannel_button{
+    margin-left: 4px;
+    flex-grow: 1;
+    width:400px;
+    height:35px;
+    background-color: #f0eef0;
+    border: 1px solid rgba(220, 220, 220, 0.85);
+ }
+
+ .pannel_filter{
+    margin-right: 4px;
+    flex-grow: 1;
+    width:400px;
+    height:35px;
+    background-color: #f0eef0;
+    border: 1px solid rgba(220, 220, 220, 0.85);
+ }
+
+ .SubmitButton{
+    flex-grow: 1;
+    margin-left: 3px;
+    height: 35px;
+    border:none;
+    cursor: pointer;
+    background-color:rgb(93, 200, 233);
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #ffffff;
+    float: right;
+ }
+
+ .FilterButton{
+    flex-grow: 1;
+    margin-right: 3px;
+    height: 35px;
+    border:none;
+    cursor: pointer;
+    background-color:rgb(93, 200, 233);
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #ffffff;
+    float: left;
+ }
+
+ .filterIcon{
+    color:black;
  }

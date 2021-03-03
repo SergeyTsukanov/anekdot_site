@@ -19,6 +19,6 @@ app.use((req, res, next) => {
 app.use( '/posts', jokesRoutes)
 
 app.listen("3001",() =>{
-    console.log("Backend is start")
+    console.log("Backend has started")
 })
 
