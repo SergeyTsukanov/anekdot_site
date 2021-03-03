@@ -28,12 +28,12 @@ export const Searchbar = (props) => {
 
         <form onSubmit={formik.handleSubmit}>
             
-            <button onClick={()=>formik.resetForm()}><AiOutlineClear/></button>
-            <select name="type" onChange={formik.handleChange} value={formik.values.type}>
+            <button className={styles.FilterButton} onClick={()=>formik.resetForm()}><AiOutlineClear size='17px' className={styles.filterIcon}/></button>
+            <select className={styles.pannel_filter} name="type" onChange={formik.handleChange} value={formik.values.type}>
                 {themes.map(theme => <option value={`${theme}`}>{theme}</option>)}
             </select>
-            <input name="title"  onChange={formik.handleChange} value = {formik.values.title}/>
-            <button type="submit"><GrFormSearch /></button>
+            <input name="title" className={styles.pannel_button} onChange={formik.handleChange} value = {formik.values.title}/>
+            <button className={styles.SubmitButton} type="submit"><GrFormSearch size='17px' /></button>
         </form>
     </div>
 }

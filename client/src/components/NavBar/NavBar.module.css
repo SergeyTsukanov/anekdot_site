@@ -1,18 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 .NavBar_container {
     flex: 0 0 25%;
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
+    height: 100%;
 }
 
 .ul_style {
-    font-family: Georgia, "Times New Roman", Times, serif;
-    font-weight: normal;
-    font-size: 18px;
-    margin-top: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 25px;
+    margin-top: 83px;
 }
 .margin_tags {
-    margin-top: 20px;
+    margin-top: 35px;
 }
 
 .margin_tags:first-child {
@@ -21,7 +25,12 @@
 
 .link {
     text-decoration: none;
+    color: rgb(103, 207, 226);
 }
-.active_link {
-    color: blue;
+
+.active_link:visited{
+    color: rgb(62, 149, 207);
 }
+
+
+

@@ -14,7 +14,7 @@ import {MyContext} from "./context"
 function App() {
   
   return (
-    <MyContext.Provider value = {["", "Армейский", "Студенческий"]}>
+    <MyContext.Provider value = {["", "Армейский", "Студенческий", "Национальные", "Семейные", "Профессии"]}>
     <BrowserRouter>
       <div className="App">
 
