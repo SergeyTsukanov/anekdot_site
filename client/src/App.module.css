@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    list-style: none;
 }
 .content{
     margin-top: 50px;
@@ -11,4 +12,8 @@
     margin: 0 auto;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.right_panel{
+    flex: 0 0 25%;
 }

@@ -7,11 +7,11 @@ export const Post = (props) => {
     return <div className={styles.post}>
         <div className={styles.post_container}>
             <div className={styles.post_header}>
-                <div className={styles.post_title}>Name</div>
-                <div className={styles.post_author}>Author</div>
+                <div className={styles.post_title}>{props.title}</div>
+                <div className={styles.post_author}>type:{props.type}</div>
             </div>
             <div className={styles.post_body}>
-                111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+               {props.text}
             </div>
             <div className={styles.post_footer}>
                 <div className={styles.post_footer_element}><IoIosHeartEmpty/></div>

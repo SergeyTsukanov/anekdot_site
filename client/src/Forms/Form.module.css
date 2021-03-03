@@ -1,0 +1,51 @@
+.Form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-self: center;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.label_name {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form_correct {
+    color: white;
+}
+.form_error {
+    color: red;
+}
+.inputs {
+    width: 356px;
+    height: 30px;
+    background-color: #f0eef0;
+    border: 1px solid rgba(220, 220, 220, 0.85);
+}
+ 
+
+.button_submit {
+    border:none;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    background-color:rgb(93, 200, 233);
+     border-radius: 5px;
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #ffffff;
+    float: right;
+    padding: 15px 30px 20px;
+}
+
+
+.textArea{
+    height: 90px;
+    background-color: #f0eef0;
+ 
+}
