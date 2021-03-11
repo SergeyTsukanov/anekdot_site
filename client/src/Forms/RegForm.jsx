@@ -37,10 +37,9 @@ export const RegForm = (props) => {
 
       <label className={styles.label_name}>
         Enter e-mail:
-        <input className={styles.inputs}
+        <input className={formik.touched.email && formik.errors.email ?styles.inputs_error: styles.inputs}
           type="text"
           name='email'
-
           value={formik.values.email}
           onChange={formik.handleChange} />
       </label>
@@ -52,7 +51,8 @@ export const RegForm = (props) => {
 
       <label className={styles.label_name}>
         Enter Nickname:
-        <input className={styles.inputs}
+        <input className={formik.touched.nickname && formik.errors.nickname ? 
+        styles.inputs_error : styles.inputs}
           type="text"
           name="nickname"
 
@@ -68,7 +68,7 @@ export const RegForm = (props) => {
 
       <label className={styles.label_name}>
         Enter password:
-        <input className={styles.inputs}
+        <input className={formik.touched.password && formik.errors.password ? styles.inputs_error : styles.inputs}
           type="password"
           name="password"
 

@@ -28,7 +28,10 @@ export const Searchbar = (props) => {
 
         <form onSubmit={formik.handleSubmit}  >
             
-            <button className={styles.FilterButton} onClick={()=>formik.resetForm()}><AiOutlineClear size='17px' className={styles.filterIcon}/></button>
+            <button className={styles.FilterButton} type ='reset' onClick ={()=>{formik.setValues({
+            title: "",
+            type: "",
+        })}}><AiOutlineClear size='17px' className={styles.filterIcon}/></button>
             <select className={styles.pannel_filter} name="type" onChange={formik.handleChange} value={formik.values.type}>
                 {themes.map(theme => <option value={`${theme}`}>{theme}</option>)}
             </select>

@@ -31,7 +31,7 @@ export const LogInForm = (props) => {
       <div className={styles.form_body}>
         <label className={styles.label_name}>
           Enter e-mail:
-        <input className={styles.inputs}
+        <input className={formik.touched.email && formik.errors.email ? styles.inputs_error : styles.inputs}
             type="text"
             name='email'
             value={formik.values.email}
@@ -45,7 +45,7 @@ export const LogInForm = (props) => {
 
         <label className={styles.label_name}>
           Enter password:
-        <input className={ styles.inputs }
+        <input className={formik.touched.password && formik.errors.password ?styles.inputs_error: styles.inputs }
             type="text"
             name="password"
             onChange={formik.handleChange}

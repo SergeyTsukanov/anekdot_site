@@ -27,6 +27,12 @@
     border: 1px solid rgba(220, 220, 220, 0.85);
 }
  
+.inputs_error{
+    width: 356px;
+    height: 30px;
+    background-color: #f0eef0;
+    border: 1px solid rgba(231, 13, 13, 0.85);
+}
 
 .button_submit {
     border:none;

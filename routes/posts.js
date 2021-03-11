@@ -1,6 +1,5 @@
 const express = require('express')
 const Posts = require("../schemas/posts.js")
-const bodyParser = require("body-parser")
 const jokesRoutes = express.Router()
 
 
@@ -15,7 +14,7 @@ jokesRoutes
     .get("/text", (req, res) => {
         res.send("the info from server comes in")
     })
-    .post("/addjoke", bodyParser.json(), (req, res) => {
+    .post("/addjoke", (req, res) => {
 
         console.log( req.body )
         const joke1 = new Posts({
