@@ -1,29 +1,55 @@
 const express = require("express")
+require("dotenv").config()
 const User = require("../schemas/users")
 const jwt = require("jsonwebtoken")
 const usersRoutes = express.Router()
 const bcrypt = require("bcrypt")
-usersRoutes.post("/reqister", (req,res) =>{
-    console.log(req.body)
-    const email = User.findOne(req.body.email)
-     
-     if(email) return res.status(400).send("user already exist")
-    //const salt = await bcrypt.genSalt(10)
-    //const hashPass = await bcrypt.hash(req.body.password,salt)
-   
-    const user = new User({
-        login:req.body.login,
-        email:req.body.email,
-        password:  req.body.password
+
+
+usersRoutes
+
+    .post("/signup", async (req, res) => {
+
+        console.log(req.body)
+        const email = await User.findOne({ email: req.body.email })
+        // console.log(email)
+        if (email) 
+        return res.status(400).send("user already exist")
+
+        const salt = await bcrypt.genSalt(10)
+        const hashPass = await bcrypt.hash(req.body.password, salt)
+
+        const user = new User({
+            login: req.body.login,
+            email: req.body.email,
+            password: hashPass
+        })
+
+        await user.save()
+
+        const token = jwt.sign({ _id: user._id }, process.env.TOKEN)
+        res.json({token:token,login:user.login})
     })
 
-  user.save()
-     
-    res.send("registered")
-}).get("/test",(req,res) => {
-    res.send("1111")
-})
- 
+    .get("/test", (req, res) => {
+        User.find().then(users => res.json(users))
+    })
+
+    .get("/login", async (req, res) => {
+        const user = await User.findOne({ email: req.body.email })
+
+        if (!user) 
+        return res.status(400).send("wrong email or password")
+
+        const checkPass = await bcrypt.compare(req.body.password, user.password)
+        if (!checkPass) 
+        return res.status(400).send("wrong email or password")
+
+        const token = jwt.sign({ _id: user._id }, process.env.TOKEN,{expiresIn:86400})
+        res.json({token:token,login:user.login})
+    })
+
+
 
 module.exports = usersRoutes
 

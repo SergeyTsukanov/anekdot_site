@@ -1,5 +1,6 @@
 import { useFormik } from "formik"
 import { useContext } from "react"
+import { Redirect } from "react-router"
 import { MyContext } from "../context"
 import styles from "./Form.module.css"
  
@@ -20,19 +21,18 @@ const validate = values => {
 
 
 export const AddJokeForm = (props) => {
- 
-  const themes = useContext(MyContext)
-
+  const {state } = useContext(MyContext)
   const formik = useFormik({
     initialValues: {
       text: '',
       title: '',
-      type: ''
+      type: '',
+      author: state.user.login
     },
     validate,
     onSubmit: values => {
       fetch("/posts/addjoke", {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        method: 'POST', headers: { 'Content-Type': 'application/json','Authorization':`Bearer ${state.user.token}` },
         body: JSON.stringify(formik.values)
       })
         .then(res => console.log(res))
@@ -41,6 +41,12 @@ export const AddJokeForm = (props) => {
       formik.resetForm()
     }
   })
+  
+  console.log(state.user.login)
+  if (!state.user.login)
+    return <Redirect to="/login"/>
+  const themes = state.themes
+ 
 
   return <form className={styles.Form} onSubmit={formik.handleSubmit}>
     <label className={styles.label_name} >

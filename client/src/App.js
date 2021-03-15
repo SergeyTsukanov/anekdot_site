@@ -7,14 +7,13 @@ import { NavBar } from "./components/NavBar/NavBar.jsx"
 import { AddJokeForm } from "./Forms/AddJokeForm.jsx";
 import {LogInForm} from "./Forms/LogInForm.jsx"
 import styles from "./App.module.css"
-import { createContext  } from "react";
-import {MyContext} from "./context"
+
 
 
 function App() {
   
   return (
-    <MyContext.Provider value = {["", "Армейский", "Студенческий", "Национальные", "Семейные", "Профессии"]}>
+    
     <BrowserRouter>
       <div className="App">
 
@@ -26,8 +25,8 @@ function App() {
 
               <Route path="/" exact component={MainPage} />
               <Route path="/about" component={AboutPage} />
-              <Route path ="/signup" component={RegForm} />
-              < Route path ="/login" component ={LogInForm}/>
+              <Route path ="/signup" component={RegForm} /> 
+              <Route path ="/login" component ={LogInForm}/>
                <Route path ="/addjoke" component ={AddJokeForm} />
             </Switch>
             <div className ={styles.right_panel}></div>
@@ -35,7 +34,7 @@ function App() {
         </div>
       </div>
     </BrowserRouter>
-    </MyContext.Provider>
+   
   );
 }
 

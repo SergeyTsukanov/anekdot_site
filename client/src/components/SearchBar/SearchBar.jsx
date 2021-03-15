@@ -7,9 +7,11 @@ import { useContext } from "react";
 import { MyContext } from "../../context";
  
 export const Searchbar = (props) => {
-   
-    const themes = useContext(MyContext)
-
+  
+    const {state} = useContext(MyContext)
+    console.log(state)
+    const themes = state.themes
+ 
     const formik = useFormik({
         initialValues: {
             title: "",
@@ -37,6 +39,6 @@ export const Searchbar = (props) => {
             </select>
             <input name="title" className={styles.pannel_button} onChange={formik.handleChange} value = {formik.values.title} />
             <button className={styles.SubmitButton} type="submit"><GrFormSearch size='17px' /></button>
-        </form>
+        </form>  
     </div>
 }
