@@ -1,8 +1,10 @@
 const express = require('express')
 const Posts = require("../schemas/posts.js")
 const jokesRoutes = express.Router()
+const verifyToken = require('../middleware')
 
 
+jokesRoutes.use("/addjoke",verifyToken)
 jokesRoutes
     .get("/all", async (req, res) => {
         try {
@@ -12,9 +14,6 @@ jokesRoutes
         catch (e) {
             console.log(e)
         }
-    })
-    .get("/text" , (req, res) => {
-        res.send("the info from server comes in")
     })
     .post("/addjoke", (req, res) => {
 

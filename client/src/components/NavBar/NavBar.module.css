@@ -1,36 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 .NavBar_container {
     flex: 0 0 25%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     height: 100%;
 }
 
 .ul_style {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     font-weight: bold;
     font-style: italic;
     font-size: 25px;
-    margin-top: 83px;
+    
 }
 .margin_tags {
-    margin-top: 35px;
+    
+  padding: 15px 20%;
 }
 
 .margin_tags:first-child {
     margin-top: 0px;
 }
 
+ 
+
 .link {
+    position: relative;
     text-decoration: none;
-    color: rgb(103, 207, 226);
+    color: rgb(62, 149, 216); 
+     transition-duration: 0.3s;
 }
+ 
+ 
+.link:hover  {
+    color: rgb(36, 26, 131);
+    font-size: 30px;
+}  
 
-.active_link:visited{
-    color: rgb(62, 149, 207);
+.active_link:visited {
+    color: rgb(0, 63, 102);
 }
-
-
-

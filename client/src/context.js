@@ -28,7 +28,7 @@ export const MyContextProvider = ({children}) =>{
 
 
     const [state, dispatch] = useReducer(reducer,initialState)
- 
+ window.state = state
     return <MyContext.Provider value = {{state,setUser}}>
         {children}
     </MyContext.Provider>

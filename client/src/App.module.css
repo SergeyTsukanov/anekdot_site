@@ -3,15 +3,14 @@
     list-style: none;
 }
 .content{
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
 }
 
 .container {
   
     margin: 0 auto;
-    padding-left: 20px;
-    padding-right: 20px;
+ 
 }
 
 .right_panel{

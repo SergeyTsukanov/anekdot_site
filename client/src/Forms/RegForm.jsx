@@ -1,7 +1,8 @@
 import styles from "./Form.module.css";
 import { useFormik } from "formik"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MyContext } from "../context";
+import { Redirect } from "react-router";
 
 
 const validate = (values) => {
@@ -19,7 +20,9 @@ const validate = (values) => {
 }
 
 export const RegForm = (props) => {
-  const { setUser } = useContext(MyContext)
+
+  const [serverError, setServerError] = useState("")
+  const { state,setUser } = useContext(MyContext)
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -34,10 +37,14 @@ export const RegForm = (props) => {
       })
         .then(res => res.json())
         .then(res => {
-          console.log(res.token)
+
+          if (res.status === "failed") {
+            setServerError(res.text)
+            return
+          }
           setUser({
             login: res.login,
-            token: res.token
+            token: res.token,
           })
         })
         .catch(res => console.log(res))
@@ -47,56 +54,57 @@ export const RegForm = (props) => {
     }
   })
 
+  if(state.user.login)
+  return <Redirect to = "/"/>
 
-  return (
-    <form className={styles.Form} onSubmit={formik.handleSubmit}>
-
-      <label className={styles.label_name}>
-        Enter e-mail:
+  return (<form className={styles.Form} onSubmit={formik.handleSubmit}>
+    <div className={styles.serverError}>{serverError}</div>
+    <label className={styles.label_name}>
+      Enter e-mail:
         <input className={formik.touched.email && formik.errors.email ? styles.inputs_error : styles.inputs}
-          type="text"
-          name='email'
-          value={formik.values.email}
-          onChange={formik.handleChange} />
-      </label>
-      {formik.touched.email && formik.errors.email ?
-        <div className={styles.form_error}>{formik.errors.email}</div> :
-        <div className={styles.form_correct}>
-          1111
+        type="text"
+        name='email'
+        value={formik.values.email}
+        onChange={formik.handleChange} />
+    </label>
+    {formik.touched.email && formik.errors.email ?
+      <div className={styles.form_error}>{formik.errors.email}</div> :
+      <div className={styles.form_correct}>
+        1111
           </div>}
 
-      <label className={styles.label_name}>
-        Enter Login:
+    <label className={styles.label_name}>
+      Enter Login:
         <input className={formik.login && formik.errors.login ?
-          styles.inputs_error : styles.inputs}
-          type="text"
-          name="login"
+        styles.inputs_error : styles.inputs}
+        type="text"
+        name="login"
 
-          onChange={formik.handleChange}
-          value={formik.values.login} />
-      </label>
+        onChange={formik.handleChange}
+        value={formik.values.login} />
+    </label>
 
-      {formik.touched.login && formik.errors.login ?
-        <div className={styles.form_error}>{formik.errors.login}</div> :
-        <div className={styles.form_correct}>
-          1111
+    {formik.touched.login && formik.errors.login ?
+      <div className={styles.form_error}>{formik.errors.login}</div> :
+      <div className={styles.form_correct}>
+        1111
           </div>}
 
-      <label className={styles.label_name}>
-        Enter password:
+    <label className={styles.label_name}>
+      Enter password:
         <input className={formik.touched.password && formik.errors.password ? styles.inputs_error : styles.inputs}
-          type="password"
-          name="password"
+        type="password"
+        name="password"
 
-          onChange={formik.handleChange}
-          value={formik.values.password} />
-      </label>
-      {formik.touched.password && formik.errors.password ?
-        <div className={styles.form_error}>{formik.errors.password}</div> :
-        <div className={styles.form_correct}>
-          1111
+        onChange={formik.handleChange}
+        value={formik.values.password} />
+    </label>
+    {formik.touched.password && formik.errors.password ?
+      <div className={styles.form_error}>{formik.errors.password}</div> :
+      <div className={styles.form_correct}>
+        1111
           </div>}
-      <button className={styles.button_submit} type="submit">Sign</button>
-    </form>
+    <button className={styles.button_submit} type="submit">Sign</button>
+  </form>
   );
 };

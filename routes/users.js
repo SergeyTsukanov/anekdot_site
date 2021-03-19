@@ -7,15 +7,13 @@ const bcrypt = require("bcrypt")
 
 
 usersRoutes
-
     .post("/signup", async (req, res) => {
-
         console.log(req.body)
         const email = await User.findOne({ email: req.body.email })
-        // console.log(email)
-        if (email) 
-        return res.status(400).send("user already exist")
 
+        if (email) 
+        return res.status(400).send({status:"failed",text:"User already exist"})
+        
         const salt = await bcrypt.genSalt(10)
         const hashPass = await bcrypt.hash(req.body.password, salt)
 
@@ -31,19 +29,16 @@ usersRoutes
         res.json({token:token,login:user.login})
     })
 
-    .get("/test", (req, res) => {
-        User.find().then(users => res.json(users))
-    })
-
-    .get("/login", async (req, res) => {
+    .post("/login", async (req, res) => {
         const user = await User.findOne({ email: req.body.email })
 
         if (!user) 
-        return res.status(400).send("wrong email or password")
+        
+        return res.status(400).send({status:"failed",text:"wrong email or password"})
 
         const checkPass = await bcrypt.compare(req.body.password, user.password)
         if (!checkPass) 
-        return res.status(400).send("wrong email or password")
+        return res.status(400).send({status:"failed",text:"wrong email or password"})
 
         const token = jwt.sign({ _id: user._id }, process.env.TOKEN,{expiresIn:86400})
         res.json({token:token,login:user.login})

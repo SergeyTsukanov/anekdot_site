@@ -4,7 +4,6 @@ import styles from "./NavBar.module.css"
 
 export const NavBar = (props) => {
     return   <div className={styles.NavBar_container}>
-
             <ul className={styles.ul_style}>
                 <li className={styles.margin_tags}>
                     <NavLink to="/" exact className={styles.link} activeClassName={styles.active_link}>

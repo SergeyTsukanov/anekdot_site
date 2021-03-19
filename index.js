@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 app.use(express.json())
 
 app.use('/auth', usersRoutes)
-app.use(verifyToken)
+
 app.use('/posts', jokesRoutes)
 
 app.listen("3001",() =>{

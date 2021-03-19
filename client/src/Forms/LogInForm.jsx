@@ -1,5 +1,9 @@
 import styles from "./Form.module.css";
 import { useFormik } from "formik"
+import { useContext, useState } from "react";
+import { MyContext } from "../context";
+import { Redirect } from "react-router";
+import { STATES } from "mongoose";
 
 const validate = (values) => {
   const errors = {}
@@ -13,6 +17,8 @@ const validate = (values) => {
 }
 
 export const LogInForm = (props) => {
+  const [serverError,setServerError] = useState("")
+  const { state,setUser } = useContext(MyContext)
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -20,14 +26,38 @@ export const LogInForm = (props) => {
     },
     validate,
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      fetch("/auth/login", {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formik.values)
+      })
+        .then(res => {
+          return res.json()
+        })
+        .then(res => {
+          
+          if(res.status === "failed")
+          {
+            setServerError(res.text)
+            return
+          }
+          setUser({
+            login: res.login,
+            token: res.token,
+          }) 
+           
+        })
+        .catch(error => console.log(error))
+      console.log(formik.values)
       formik.resetForm()
+      
+      
     }
   })
+    if(state.user.login)
+      return <Redirect to = "/"/>
 
-
-  return (
-    <form className={styles.Form} onSubmit={formik.handleSubmit}>
+  return ( <form className={styles.Form} onSubmit={formik.handleSubmit}>
+      <div className ={styles.serverError}>{serverError}</div>
       <div className={styles.form_body}>
         <label className={styles.label_name}>
           Enter e-mail:
