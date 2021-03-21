@@ -20,7 +20,8 @@ usersRoutes
         const user = new User({
             login: req.body.login,
             email: req.body.email,
-            password: hashPass
+            password: hashPass,
+            likedPosts:[],
         })
 
         await user.save()

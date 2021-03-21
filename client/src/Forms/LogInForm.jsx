@@ -3,7 +3,7 @@ import { useFormik } from "formik"
 import { useContext, useState } from "react";
 import { MyContext } from "../context";
 import { Redirect } from "react-router";
-import { STATES } from "mongoose";
+import {LoginRequest} from "../request/Reqistration"
 
 const validate = (values) => {
   const errors = {}
@@ -17,6 +17,7 @@ const validate = (values) => {
 }
 
 export const LogInForm = (props) => {
+    
   const [serverError,setServerError] = useState("")
   const { state,setUser } = useContext(MyContext)
   const formik = useFormik({
@@ -26,10 +27,7 @@ export const LogInForm = (props) => {
     },
     validate,
     onSubmit: values => {
-      fetch("/auth/login", {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formik.values)
-      })
+      LoginRequest(JSON.stringify(formik.values))
         .then(res => {
           return res.json()
         })

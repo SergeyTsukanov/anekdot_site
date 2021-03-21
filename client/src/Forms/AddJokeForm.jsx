@@ -2,6 +2,7 @@ import { useFormik } from "formik"
 import { useContext } from "react"
 import { Redirect } from "react-router"
 import { MyContext } from "../context"
+import {registRequest} from "../request/Reqistration"
 import styles from "./Form.module.css"
 
 const validate = values => {
@@ -21,6 +22,7 @@ const validate = values => {
 
 
 export const AddJokeForm = (props) => {
+  
   const { state } = useContext(MyContext)
   const formik = useFormik({
     initialValues: {
@@ -42,7 +44,6 @@ export const AddJokeForm = (props) => {
     }
   })
 
-  console.log(state.user.login)
   if (!state.user.login)
     return <Redirect to="/login" />
   const themes = state.themes

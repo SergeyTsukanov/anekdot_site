@@ -13,6 +13,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
+    savedPosts:{
+        type:Array,
+        require: true,
+    }
 })
 
 module.exports = mongoose.model("Users", UserSchema)

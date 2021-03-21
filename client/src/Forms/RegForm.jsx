@@ -3,7 +3,7 @@ import { useFormik } from "formik"
 import { useContext, useState } from "react";
 import { MyContext } from "../context";
 import { Redirect } from "react-router";
-
+import { registRequest } from "../request/Reqistration"
 
 const validate = (values) => {
   const errors = {}
@@ -20,9 +20,9 @@ const validate = (values) => {
 }
 
 export const RegForm = (props) => {
-
+  const { state, setUser } = useContext(MyContext)
   const [serverError, setServerError] = useState("")
-  const { state,setUser } = useContext(MyContext)
+   
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -31,10 +31,7 @@ export const RegForm = (props) => {
     },
     validate,
     onSubmit: values => {
-      fetch("/auth/signup", {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formik.values)
-      })
+      registRequest(JSON.stringify(formik.values))
         .then(res => res.json())
         .then(res => {
 
@@ -49,13 +46,12 @@ export const RegForm = (props) => {
         })
         .catch(res => console.log(res))
       console.log(formik.values)
-
       formik.resetForm()
     }
   })
 
-  if(state.user.login)
-  return <Redirect to = "/"/>
+  if (state.user.login)
+    return <Redirect to="/" />
 
   return (<form className={styles.Form} onSubmit={formik.handleSubmit}>
     <div className={styles.serverError}>{serverError}</div>

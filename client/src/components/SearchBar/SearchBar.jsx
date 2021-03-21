@@ -1,6 +1,6 @@
 import styles from "./SearchBar.module.css"
 import { GrFormSearch } from "react-icons/gr";
-import { DropDownMenu } from "../../elements/DropDownMenu/DropDownMenu"
+
 import { useFormik } from "formik";
 import { AiOutlineClear } from "react-icons/ai";
 import { useContext } from "react";
