@@ -2,8 +2,10 @@ import { useFormik } from "formik"
 import { useContext } from "react"
 import { Redirect } from "react-router"
 import { MyContext } from "../context"
+import { AddJoke } from "../request/Jokes"
 import {registRequest} from "../request/Reqistration"
 import styles from "./Form.module.css"
+
 
 const validate = values => {
   const errors = {}
@@ -33,10 +35,7 @@ export const AddJokeForm = (props) => {
     },
     validate,
     onSubmit: values => {
-      fetch("/posts/addjoke", {
-        method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${state.user.token}` },
-        body: JSON.stringify(formik.values)
-      })
+      AddJoke(state.user.token,JSON.stringify(formik.values))
         .then(res => console.log(res))
         .catch(res => console.log(res))
       console.log(formik.values)

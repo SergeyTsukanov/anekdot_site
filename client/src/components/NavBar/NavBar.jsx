@@ -15,8 +15,8 @@ export const NavBar = (props) => {
                         Posts
                         </NavLink></li>
                 <li className={styles.margin_tags}>
-                    <NavLink to="/liked" className={styles.link} activeClassName={styles.active_link}>
-                        Liked
+                    <NavLink to="/saved" className={styles.link} activeClassName={styles.active_link}>
+                        Saved
                     </NavLink>
                 </li>
                 <li className={styles.margin_tags}>

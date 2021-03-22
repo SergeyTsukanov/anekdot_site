@@ -7,6 +7,7 @@ import { NavBar } from "./components/NavBar/NavBar.jsx"
 import { AddJokeForm } from "./Forms/AddJokeForm.jsx";
 import {LogInForm} from "./Forms/LogInForm.jsx"
 import styles from "./App.module.css"
+import { Savedposts } from "./components/Saved/Savedposts.jsx";
 
 
 
@@ -28,6 +29,7 @@ function App() {
               <Route path ="/signup" component={RegForm} /> 
               <Route path ="/login" component ={LogInForm}/>
                <Route path ="/addjoke" component ={AddJokeForm} />
+               <Route path ="/saved" component ={Savedposts} />
             </Switch>
             <div className ={styles.right_panel}></div>
           </div>

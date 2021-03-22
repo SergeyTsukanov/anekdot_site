@@ -1,17 +1,19 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { Post } from "../../elements/Post/Post"
 import styles from "./Posts.module.css"
-import ClipLoader from "react-spinners/ClipLoader";
 import { Loader } from "../../elements/Preloader/Preloader";
 
 
-const prepare = (a) =>{         //for filtering
+
+const prepare = (a) => {         //for filtering
     return a.toLowerCase().split(" ").join("")
 }
 
-export const Posts = (props) =>{
-    useEffect(() => {
+export const Posts = (props) => {
 
+
+
+    useEffect(() => {
         fetch("/posts/all")
             .then(data => data.json())
             .then(
@@ -24,15 +26,18 @@ export const Posts = (props) =>{
                 props.setError(e)
             })
     }, [])
-    
-    if(props.error)
-    return <div>error</div>
-if (!props.posts)
-    return <Loader size={150}/>
-    return <div className ={styles.posts}>
-    {props.posts
-    .filter( post => post.type.includes(props.filter.type) && prepare(post.title).includes(prepare(props.filter.title)))
-    .map((post) =>  <Post text={post.text} title ={post.title} type = {post.type}/>).reverse()}
+
+    if (props.error)
+        return <div>error</div>
+    if (!props.posts)
+        return <Loader size={150} />
+    return <div className={styles.posts}>
+        {props.posts
+            .filter(post => post.type.includes(props.filter.type) && prepare(post.title).includes(prepare(props.filter.title)))
+            .map((post) => <Post text={post.text}
+                title={post.title}
+                type={post.type}
+                _id={post._id} />).reverse()}
     </div>
 }
 

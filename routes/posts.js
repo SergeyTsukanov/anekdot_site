@@ -6,7 +6,7 @@ const Users = require('../schemas/users.js')
 
 
 jokesRoutes.use("/addjoke",verifyToken)
-jokesRoutes.use("/likejoke",verifyToken)
+jokesRoutes.use("/savejoke",verifyToken)
 jokesRoutes
     .get("/all", async (req, res) => {
         try {
@@ -36,9 +36,10 @@ jokesRoutes
 
     })
     .put("/savejoke", async (req,res) =>{
+        
         const user =  await Users.findOne({login:req.body.login})
         console.log(user)
-        user.likedPosts.push(req.body._id)
+        user.savedPosts.push(req.body._id)
         await user.save()
         res.sendStatus(200)
     })

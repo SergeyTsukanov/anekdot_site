@@ -41,6 +41,7 @@ export const LogInForm = (props) => {
           setUser({
             login: res.login,
             token: res.token,
+            savedPosts:res.savedPosts
           }) 
            
         })

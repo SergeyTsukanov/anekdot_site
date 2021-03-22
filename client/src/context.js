@@ -1,5 +1,4 @@
 import { createContext, useCallback, useReducer } from "react"
-//export const MyContext = createContext()//themes of jokes
 
 export const MyContext = createContext()
 const initialState = {
@@ -7,6 +6,7 @@ const initialState = {
     user:{
         login:"",
         token:"",
+        savedPosts:[]
     }
 }
 const reducer = (state,action) =>{

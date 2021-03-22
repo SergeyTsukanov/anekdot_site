@@ -42,7 +42,7 @@ usersRoutes
         return res.status(400).send({status:"failed",text:"wrong email or password"})
 
         const token = jwt.sign({ _id: user._id }, process.env.TOKEN,{expiresIn:86400})
-        res.json({token:token,login:user.login})
+        res.json({token:token,login:user.login,savedPosts:user.savedPosts})
     })
 
 

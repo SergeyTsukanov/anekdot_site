@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 verifyToken  =(req,res,next) =>{
+   
   if (req.path == '/posts/all') return next()
         
     const token =  req.headers.authorization.split(' ')[1]
