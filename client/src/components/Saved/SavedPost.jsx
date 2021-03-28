@@ -1,18 +1,23 @@
-import styles from "./Post.module.css"
-import { IoIosHeart, IoIosHeartEmpty } from "react-icons/io";
+ 
+import { IoIosHeartEmpty } from "react-icons/io";
+import { AiFillDelete } from "react-icons/ai";
 import { FaComment, FaPlus } from "react-icons/fa";
-import { useContext } from "react";
+import React, { useContext } from "react"; 
 import { MyContext } from "../../context";
-import { SaveJoke } from "../../request/Jokes";
+import { RemoveJoke } from "../../request/Jokes";
+import styles from "./Savedposts.module.css"
+export const SavedPost =  (props) => {
+   
+    const { state,UpdateSavedJokes } = useContext(MyContext)
+    
+    
 
-export const Post = (props) => {
-
-    const { state } = useContext(MyContext)
-    const savedPosts = state.user.savedPosts
-    const isSaved = savedPosts.includes(props._id.toString())
-    const savePost = () =>{
-        SaveJoke(state.user.token,JSON.stringify({_id:props._id,login:state.user.login}))
-        .then(res =>console.log(res))
+    const deletePost =() =>{
+        RemoveJoke(state.user.token,JSON.stringify({_id:props._id,login:state.user.login}))
+        .then(res =>res.json())
+        .then(res =>{console.log(res.savedPosts)
+            UpdateSavedJokes(res.savedPosts)
+                        })
         .catch(e =>(console.log(e)))
     }
 
@@ -28,11 +33,9 @@ export const Post = (props) => {
             <div className={styles.post_footer}>
                 <div className={styles.post_footer_element}><IoIosHeartEmpty /></div>
                 <div className={styles.post_footer_element}>  <FaComment /> </div>
-                {state.user.login && !isSaved ?
-                    <div className={styles.post_footer_element} onClick ={savePost}> <FaPlus /></div> :
-                    <div className={styles.post_footer_element}></div>
-                }
+                    <div className={styles.post_footer_element} onClick ={deletePost}><AiFillDelete/></div>
+                
             </div>
         </div>
     </div>
-}
+}   

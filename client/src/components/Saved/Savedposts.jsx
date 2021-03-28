@@ -1,15 +1,19 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { Redirect } from "react-router"
 import { MyContext } from "../../context"
-import {styles} from "./Savedposts.module.css"
+import { Post } from "../MainPage/Post/Post"
+import { SavedPost } from "./SavedPost"
+import styles from "./Savedposts.module.css"
 
 export const Savedposts =(posts) =>{
     const {state} = useContext(MyContext)
-    const savedPosts = []
-
     if(!state.user.login)
         return <Redirect to ="/login"/>
     return <div>
-        {state.user.login}
+        {state.user.savedPosts.map((post,key) =>
+                <SavedPost key={key}  text={post.text}
+                    title={post.title}
+                    type={post.type}
+                    _id={post._id} />)}
     </div>
 }

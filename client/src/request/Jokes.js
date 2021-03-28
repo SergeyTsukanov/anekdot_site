@@ -8,7 +8,14 @@ export const AddJoke = (token,body) =>{
   })}
 
   export const SaveJoke = (token,body) =>{      
-    return fetch("/posts/savejoke", {
+    return fetch(SAVEJOKE, {
      method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
      body: body
    })}
+
+   export const RemoveJoke =(token,body) =>{
+    return fetch("/posts/removejoke", {
+      method: 'DELETE', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: body
+    })
+   }

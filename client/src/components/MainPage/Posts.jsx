@@ -1,7 +1,7 @@
-import { useContext, useEffect } from "react"
-import { Post } from "../../elements/Post/Post"
+import React, { useContext, useEffect, useMemo } from "react"
+import { Post } from "./Post/Post"
 import styles from "./Posts.module.css"
-import { Loader } from "../../elements/Preloader/Preloader";
+import { Loader } from "../../elements/Preloader";
 
 
 
@@ -9,9 +9,9 @@ const prepare = (a) => {         //for filtering
     return a.toLowerCase().split(" ").join("")
 }
 
-export const Posts = (props) => {
+ 
 
-
+export const Posts =  (props) => {
 
     useEffect(() => {
         fetch("/posts/all")
@@ -27,6 +27,8 @@ export const Posts = (props) => {
             })
     }, [])
 
+  
+
     if (props.error)
         return <div>error</div>
     if (!props.posts)
@@ -34,10 +36,11 @@ export const Posts = (props) => {
     return <div className={styles.posts}>
         {props.posts
             .filter(post => post.type.includes(props.filter.type) && prepare(post.title).includes(prepare(props.filter.title)))
-            .map((post) => <Post text={post.text}
-                title={post.title}
-                type={post.type}
-                _id={post._id} />).reverse()}
+            .map((post,key) =>
+                <Post key={key}  text={post.text}
+                    title={post.title}
+                    type={post.type}
+                    _id={post._id} />).reverse() }
     </div>
-}
+} 
 
