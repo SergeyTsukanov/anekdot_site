@@ -21,7 +21,7 @@ usersRoutes
             login: req.body.login,
             email: req.body.email,
             password: hashPass,
-            likedPosts:[],
+            savedPosts:[],
         })
 
         await user.save()

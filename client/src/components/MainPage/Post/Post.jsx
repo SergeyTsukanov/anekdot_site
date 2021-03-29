@@ -19,6 +19,7 @@ export const Post =  (props) => {
             UpdateSavedJokes(res.savedPosts)
                         })
         .catch(e =>(console.log(e)))
+        
     }
 
     const deletePost =() =>{
