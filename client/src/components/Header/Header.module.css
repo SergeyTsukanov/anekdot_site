@@ -70,3 +70,10 @@
     background-color:rgb(243, 243, 243);
     border: solid 1px rgb(243, 243, 243);
 }
+
+.button_user{
+    margin-right: 20px;
+    font-size: 25px;
+    color:rgb(245, 238, 238);
+    font-weight: 700;
+}

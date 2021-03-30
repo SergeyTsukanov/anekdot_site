@@ -8,6 +8,7 @@ import { AddJokeForm } from "./Forms/AddJokeForm.jsx";
 import {LogInForm} from "./Forms/LogInForm.jsx"
 import styles from "./App.module.css"
 import { Savedposts } from "./components/Saved/Savedposts.jsx";
+import {Footer} from "./components/Footer/Footer.jsx"
 
 
 
@@ -34,6 +35,7 @@ function App() {
             <div className ={styles.right_panel}></div>
           </div>
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
    

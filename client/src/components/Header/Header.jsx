@@ -23,9 +23,9 @@ export const Header = (props) => {
             Jokes.com
             </NavLink>
 
-        </div>
+        </div >
         {state.user.login ? <div className={styles.button_container}>
-          <a className={styles.button_log_in}>
+          <a className={styles.button_user}>
             {state.user.login}
           </a>
           <a className={styles.button_sign_up} onClick={Logout}>
