@@ -4,7 +4,7 @@ import { MyContext } from "../../context"
 import { Post } from "../MainPage/Post/Post"
  
 
-export const Savedposts =(posts) =>{
+export const Savedposts =(props) =>{
     const {state} = useContext(MyContext)
     if(!state.user.login)
         return <Redirect to ="/login"/>

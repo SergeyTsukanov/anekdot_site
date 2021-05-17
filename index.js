@@ -2,11 +2,11 @@ const jokesRoutes  = require("./routes/posts")
 const express = require("express")
 const mongoose = require('mongoose')
 const usersRoutes = require("./routes/users")
-const verifyToken = require("./middleware")
+ 
 require("dotenv").config()
 const app = express()
 
-const verfyToken = require("./middleware")
+ 
  
 
 mongoose

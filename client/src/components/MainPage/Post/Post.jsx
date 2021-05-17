@@ -8,7 +8,7 @@ import { RemoveJoke, SaveJoke } from "../../../request/Jokes";
 
 
 export const Post =  (props) => {
-   
+    
     const { state,UpdateSavedJokes } = useContext(MyContext)
     const savedPostsIds = state.user.savedPosts.map(el =>el._id)
     const isSaved = savedPostsIds.includes(props._id.toString())

@@ -3,6 +3,7 @@
     background-color: rgb(93, 200, 233);
     border-bottom-left-radius: 9px;
     border-bottom-right-radius: 9px;
+    flex-shrink: 0;
 }
 
 .container {

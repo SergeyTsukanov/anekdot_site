@@ -17,10 +17,10 @@ function App() {
   return (
     
     <BrowserRouter>
-      <div className="App">
+      <div className={styles.App}>
 
-        <Header />
-        <div className={styles.container}>
+            <Header />
+         
           <div className={styles.content}>
             <NavBar />
             <Switch>
@@ -33,7 +33,7 @@ function App() {
                <Route path ="/saved" component ={Savedposts} />
             </Switch>
             <div className ={styles.right_panel}></div>
-          </div>
+          
         </div>
         <Footer />
       </div>

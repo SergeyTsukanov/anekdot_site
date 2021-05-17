@@ -1,33 +1,11 @@
-*{
-	margin: 0px;
-	padding: 0px;
-	box-sizing: border-box;
-}
-
-h1 {
-	position: absolute;
-	top: 40%;
-	left: 50%;
-	transform: translate(-50%,-50px);
-	margin: 0px;
-	padding: 0px;
-	text-align: center;
-	font-size: 10em;
-	color: #fff;
-	text-transform: uppercase;
-	text-shadow: 0 5px 10px rgba(0,0,0,1);
-	mix-blend-mode: overlay;
-	font-family: 'Roboto Slab', serif;
-	box-shadow: 0 5px 10px rgba(0,0,0,1);
-	text-decoration: none;
-}
+ 
 
 .footer{
-	width: 100%;
-	height: auto;
-	margin: auto;
+ 
 	background:rgb(93, 200, 233);
 	padding: 20px 0px;
+	flex-shrink: 0;
+	display: flex;
 	
 }
 
@@ -45,11 +23,8 @@ h1 {
 
 .footer_icons ul li{
     display: inline-block;
-	width: 50px;
-	height: 50px;
-	margin: 0px 10px;
-	border-radius: 100%;
-	background:#f8f8f8; 
+ 
+	margin: 0 10px;
 }
 
 .footer_icons ul li a{
@@ -58,20 +33,14 @@ h1 {
 	font-size: 25px;
 	display: block;
 }
+ 
 
-.footer_icons ul li a i{
-    line-height: 50px;
-}
-
-.footer_icons ul li a:hover >i{
-    transform: scale(1.6) rotate(25deg);
-}
-
+ 
 .footer_content{
     width: 100%;
-    height: auto;
+    
     margin: auto;
-    margin-top: 25px;
+     
 }
 
 .footer_content ul{
@@ -95,7 +64,4 @@ h1 {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-
-.footer_content ul li a:hover{
-    transform: scale(1.6) rotate(25deg);
-}
+ 

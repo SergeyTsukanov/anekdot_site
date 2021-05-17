@@ -5,11 +5,14 @@ import { MyContext } from "../context";
 import { Redirect } from "react-router";
 import {LoginRequest} from "../request/Reqistration"
 
+const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 const validate = (values) => {
   const errors = {}
   if (!values.email) {
     errors.email = "requied"
   }
+  if(!re.test(values.email) )
+  errors.email = "email is incorrect"
   if (!values.password) {
     errors.password = "requied"
   }
