@@ -29,7 +29,8 @@ jokesRoutes
             text: req.body.text,
             author: req.body.author,
             type: req.body.type,
-            title: req.body.title
+            title: req.body.title,
+            likesCount:req.body.likesCount 
         })
         Posts.create(joke1, (err) => {
             if (err) {
@@ -58,6 +59,28 @@ jokesRoutes
         console.log(user.savedPosts)
         ResponsePosts = await Posts.find().where('_id').in(user.savedPosts)
         res.status(200).send({savedPosts:ResponsePosts})
+    }).put("/likejoke",async (req,res) =>{
+        const post = await Posts.findOne({_id:req.body_id})
+        post.likesCount+=1
+        await post.save()
+        const user =  await Users.findOne({login:req.body.login})
+        console.log(user)
+        user.likedPosts.push(req.body._id)
+        await user.save()
+        console.log(user.likedPosts)
+        ResponsePosts = await Posts.find().where('_id').in(user.likedPosts)
+        res.status(200).send({likedPosts:ResponsePosts})
+    }).delete("/unlikejoke",async (req,res) =>{
+        const post = await Posts.findOne({_id:req.body_id})
+        post.likesCount-=1
+        await post.save()
+        const user =  await Users.findOne({login:req.body.login})
+        console.log(user)
+        user.likedPosts.pull(req.body._id)
+        await user.save()
+        console.log(user.likedPosts)
+        ResponsePosts = await Posts.find().where('_id').in(user.likedPosts)
+        res.status(200).send({likedPosts:ResponsePosts})
     })
 
 module.exports = jokesRoutes

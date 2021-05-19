@@ -37,7 +37,9 @@ export const Posts =  (props) => {
         {props.posts
             .filter(post => post.type.includes(props.filter.type) && prepare(post.title).includes(prepare(props.filter.title)))
             .map((post,key) =>
-                <Post key={key}  text={post.text}
+                <Post key={key} 
+                likesCount ={post.likesCount} 
+                text={post.text}
                     title={post.title}
                     type={post.type}
                     _id={post._id} />).reverse() }

@@ -10,10 +10,7 @@ export const NavBar = (props) => {
                         Home
                 </NavLink>
                 </li>
-                <li className={styles.margin_tags}>
-                    <NavLink to="/posts" className={styles.link} activeClassName={styles.active_link}>
-                        Posts
-                        </NavLink></li>
+      
                 <li className={styles.margin_tags}>
                     <NavLink to="/saved" className={styles.link} activeClassName={styles.active_link}>
                         Saved
@@ -29,11 +26,7 @@ export const NavBar = (props) => {
                         News
                     </NavLink>
                 </li>
-                <li className={styles.margin_tags}>
-                    <NavLink to="/suggestion" className={styles.link} activeClassName={styles.active_link}>
-                        Suggestions
-                    </NavLink>
-                </li>
+                 
                 <li className={styles.margin_tags}>
                     <NavLink to="/addjoke" className={styles.link} activeClassName={styles.active_link}>
                         Add joke

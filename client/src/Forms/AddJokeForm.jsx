@@ -31,7 +31,8 @@ export const AddJokeForm = (props) => {
       text: '',
       title: '',
       type: '',
-      author: state.user.login
+      author: state.user.login,
+      likesCount:0
     },
     validate,
     onSubmit: values => {
