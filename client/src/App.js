@@ -9,6 +9,7 @@ import {LogInForm} from "./Forms/LogInForm.jsx"
 import styles from "./App.module.css"
 import { Savedposts } from "./components/Saved/Savedposts.jsx";
 import {Footer} from "./components/Footer/Footer.jsx"
+import { PostComments } from "./components/PostComments/PostComments.jsx";
 
 
 
@@ -31,6 +32,7 @@ function App() {
               <Route path ="/login" component ={LogInForm}/>
                <Route path ="/addjoke" component ={AddJokeForm} />
                <Route path ="/saved" component ={Savedposts} />
+               <Route path="/post/:id/comments" component={PostComments}/>
             </Switch>
             <div className ={styles.right_panel}></div>
           

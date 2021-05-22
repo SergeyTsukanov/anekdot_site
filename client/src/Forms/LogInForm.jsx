@@ -78,7 +78,7 @@ export const LogInForm = (props) => {
         <label className={styles.label_name}>
           Enter password:
         <input className={formik.touched.password && formik.errors.password ?styles.inputs_error: styles.inputs }
-            type="text"
+            type="password"
             name="password"
             onChange={formik.handleChange}
             value={formik.values.password} />

@@ -1,17 +1,30 @@
+
 import styles from "./Post.module.css"
 import { IoIosHeartEmpty } from "react-icons/io";
 import { AiFillDelete } from "react-icons/ai";
 import { FaComment, FaPlus } from "react-icons/fa";
 import React, { useContext } from "react";
 import { MyContext } from "../../../context";
-import { RemoveJoke, SaveJoke } from "../../../request/Jokes";
-
+import { LikeJoke, RemoveJoke, SaveJoke } from "../../../request/Jokes";
+ 
+import { NavLink } from "react-router-dom";
 
 export const Post =  (props) => {
     
     const { state,UpdateSavedJokes } = useContext(MyContext)
     const savedPostsIds = state.user.savedPosts.map(el =>el._id)
     const isSaved = savedPostsIds.includes(props._id.toString())
+
+
+    const likePost =() =>{
+        LikeJoke(state.user.token,JSON.stringify({_id:props._id,login:state.user.login}))
+        .then(res=>res.json())
+         
+    }
+    const unlikePost =()=>{
+
+    }
+
     const savePost = () =>{
         SaveJoke(state.user.token,JSON.stringify({_id:props._id,login:state.user.login}))
         .then(res =>res.json())
@@ -19,7 +32,6 @@ export const Post =  (props) => {
             UpdateSavedJokes(res.savedPosts)
                         })
         .catch(e =>(console.log(e)))
-        
     }
 
     const deletePost =() =>{
@@ -42,7 +54,7 @@ export const Post =  (props) => {
             </div>
             <div className={styles.post_footer}>
                 <div className={styles.post_footer_element}><IoIosHeartEmpty /></div>
-                <div className={styles.post_footer_element}>  <FaComment /> </div>
+                <div className={styles.post_footer_element}><NavLink  to ={`/post/${props._id}/comments`}><FaComment color="black"/> </NavLink>  </div>
                 {!state.user.login ? <div></div> :
                  !isSaved ?
                     <div className={styles.post_footer_element} onClick ={savePost}> <FaPlus /></div> :

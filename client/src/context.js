@@ -6,7 +6,7 @@ const initialState = {
     user: {
         login: localStorage.getItem('login')||"",
         token: localStorage.getItem('token')||"",
-        savedPosts: JSON.parse( localStorage.getItem('savedPosts'))||{} 
+        savedPosts: JSON.parse( localStorage.getItem('savedPosts'))||[] 
     },
     posts: []
 }

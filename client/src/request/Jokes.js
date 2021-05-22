@@ -19,3 +19,17 @@ export const AddJoke = (token,body) =>{
       body: body
     })
    }
+
+   export const LikeJoke = (token,body)=>{
+     return fetch("/posts/likejoke",{
+      method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: body
+     })
+   }
+
+   export const UnlikeJoke =(token,body)=>{
+    return fetch("/posts/unlikejoke",{
+      method: 'PUT', headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+      body: body
+     })
+   }
