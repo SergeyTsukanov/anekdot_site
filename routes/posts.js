@@ -70,9 +70,7 @@ jokesRoutes
         ResponsePosts = await Posts.find().where('_id').in(user.savedPosts)
         res.status(200).send({savedPosts:ResponsePosts})
     }).put("/likejoke",async (req,res) =>{
-        const post = await Posts.findOne({_id:req.body_id})
-        post.likesCount+=1
-        await post.save()
+ 
         const user =  await Users.findOne({login:req.body.login})
         console.log(user)
         user.likedPosts.push(req.body._id)
@@ -81,9 +79,7 @@ jokesRoutes
         ResponsePosts = await Posts.find().where('_id').in(user.likedPosts)
         res.status(200).send({likedPosts:ResponsePosts})
     }).put("/unlikejoke",async (req,res) =>{
-        const post = await Posts.findOne({_id:req.body_id})
-        post.likesCount-=1
-        await post.save()
+ 
         const user =  await Users.findOne({login:req.body.login})
         console.log(user)
         user.likedPosts.pull(req.body._id)

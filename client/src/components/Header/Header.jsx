@@ -11,7 +11,8 @@ export const Header = (props) => {
     setUser({
       login: "",
       token: "",
-      savedPosts:[]
+      savedPosts:[],
+      likedPosts:[]
     })
   }
   return (

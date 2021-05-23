@@ -36,7 +36,8 @@ export const PostComments =(props) =>{
         <Post  text={post.text}
                     title={post.title}
                     type={post.type}
-                    _id={ post._id} />
+                    _id={ post._id} 
+                    likesCount ={post.likesCount} />
                     
         <div>Comments</div>
     </div>

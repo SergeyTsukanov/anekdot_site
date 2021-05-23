@@ -6,8 +6,9 @@ const initialState = {
     user: {
         login: localStorage.getItem('login')||"",
         token: localStorage.getItem('token')||"",
-        savedPosts: JSON.parse( localStorage.getItem('savedPosts'))||{},
-        likedPosts: JSON.parse( localStorage.getItem('likedPosts'))||{},
+        savedPosts: JSON.parse( localStorage.getItem('savedPosts'))||[],
+        likedPosts: JSON.parse( localStorage.getItem('likedPosts'))||[]
+      
     },
     posts: []
 }
@@ -17,6 +18,7 @@ const reducer = (state, action) => {
             localStorage.setItem('login',action.data.login)
             localStorage.setItem('token',action.data.token)
             localStorage.setItem('savedPosts',JSON.stringify(action.data.savedPosts) )
+            localStorage.setItem('likedPosts',JSON.stringify(action.data.likedPosts) )
             return {
                 ...state,
                 user: action.data
@@ -42,7 +44,8 @@ const reducer = (state, action) => {
             user: {
                 ...state.user,
                 likedPosts: action.data
-            }
+            },
+             
         }
     }
 }

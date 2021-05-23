@@ -49,7 +49,8 @@ export const RegForm = (props) => {
           setUser({
             login: res.login,
             token: res.token,
-            savedPosts:res.savedPosts
+            savedPosts:res.savedPosts,
+            likedPosts:res.likedPosts
           })
         })
         .catch(res => console.log(res))

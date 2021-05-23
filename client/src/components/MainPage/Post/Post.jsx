@@ -1,11 +1,11 @@
 import styles from "./Post.module.css";
-import { IoIosHeartEmpty } from "react-icons/io";
+import { IoIosHeartEmpty,IoIosHeart } from "react-icons/io";
 
 import { AiFillDelete } from "react-icons/ai";
 import { FaComment, FaPlus } from "react-icons/fa";
 import React, { useContext } from "react";
 import { MyContext } from "../../../context";
-import { LikeJoke, RemoveJoke, SaveJoke } from "../../../request/Jokes";
+import { LikeJoke, RemoveJoke, SaveJoke, UnlikeJoke } from "../../../request/Jokes";
 
 import { NavLink } from "react-router-dom";
 
@@ -14,8 +14,35 @@ export const Post = (props) => {
   const savedPostsIds = state.user.savedPosts.map((el) => el._id);
   const isSaved = savedPostsIds.includes(props._id.toString());
 
- 
- 
+  const likedPostsIds = state.user.likedPosts.map((el) => el._id);
+  const isLiked = likedPostsIds.includes(props._id.toString());
+
+  const LikePost = () => {
+    LikeJoke(
+      state.user.token,
+      JSON.stringify({ _id: props._id, login: state.user.login })
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.likedPosts);
+        UpdateLikedJokes(res.likedPosts);
+      })
+      .catch((e) => console.log(e));
+  };
+
+  const UnlikePost = () => {
+    UnlikeJoke(
+      state.user.token,
+      JSON.stringify({ _id: props._id, login: state.user.login })
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.likedPosts);
+        UpdateLikedJokes(res.likedPosts);
+      })
+      .catch((e) => console.log(e));
+  };
+  
   const savePost = () => {
     SaveJoke(
       state.user.token,
@@ -51,10 +78,17 @@ export const Post = (props) => {
         </div>
         <div className={styles.post_body}>{props.text}</div>
         <div className={styles.post_footer}>
-          <div className={styles.post_footer_element}>
+          {!state.user.login ? <div  >
             <IoIosHeartEmpty />
-            {props.likesCount}
-          </div>
+            
+          </div> :!isLiked ? 
+          <div className={styles.post_footer_element} onClick={LikePost}>
+              <IoIosHeartEmpty />  
+            </div>
+           : 
+            <div className={styles.post_footer_element} onClick={UnlikePost}>
+              <IoIosHeart />  
+            </div>}
 
           <div className={styles.post_footer_element}>
             <NavLink

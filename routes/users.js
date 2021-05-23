@@ -22,12 +22,14 @@ usersRoutes
             email: req.body.email,
             password: hashPass,
             savedPosts:[],
+            likedPosts:[]
         })
 
         await user.save()
-        ResponsePosts = await Posts.find().where('_id').in(user.savedPosts)
+        savedPosts = await Posts.find().where('_id').in(user.savedPosts)
+        likedPosts = await Posts.find().where('_id').in(user.likedPosts)
         const token = jwt.sign({ _id: user._id }, process.env.TOKEN)
-        res.json({token:token,login:user.login,savedPosts:ResponsePosts})
+        res.json({token:token,login:user.login,savedPosts:savedPosts,likedPosts:likedPosts})
     })
 
     .post("/login", async (req, res) => {
@@ -42,8 +44,9 @@ usersRoutes
         return res.status(400).send({status:"failed",text:"wrong email or password"})
 
         const token = jwt.sign({ _id: user._id }, process.env.TOKEN,{expiresIn:86400})
-        ResponsePosts = await Posts.find().where('_id').in(user.savedPosts)
-        res.json({token:token,login:user.login,savedPosts: ResponsePosts})
+        savedPosts = await Posts.find().where('_id').in(user.savedPosts)
+        likedPosts = await Posts.find().where('_id').in(user.likedPosts)
+        res.json({token:token,login:user.login,savedPosts: savedPosts,likedPosts:likedPosts})
     })
 
 
