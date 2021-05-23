@@ -6,7 +6,8 @@ const initialState = {
     user: {
         login: localStorage.getItem('login')||"",
         token: localStorage.getItem('token')||"",
-        savedPosts: JSON.parse( localStorage.getItem('savedPosts'))||[] 
+        savedPosts: JSON.parse( localStorage.getItem('savedPosts'))||{},
+        likedPosts: JSON.parse( localStorage.getItem('likedPosts'))||{},
     },
     posts: []
 }
@@ -34,6 +35,15 @@ const reducer = (state, action) => {
                 ...state,
                 posts: action.data
             }
+        case"UPDATE_LIKED_JOKES":
+        localStorage.setItem('likedPosts',JSON.stringify(action.data))
+        return {
+            ...state,
+            user: {
+                ...state.user,
+                likedPosts: action.data
+            }
+        }
     }
 }
 
@@ -44,14 +54,20 @@ export const MyContextProvider = ({ children }) => {
         const setUser =useCallback( data => {
         dispatch({ type: "SET_USER", data: data })
     },[dispatch])
+
     const UpdateSavedJokes = useCallback( item => {
         dispatch({ type: "UPDATE_SAVED_JOKES", data: item })
     },[dispatch])
+
     const setPosts =useCallback( data =>{
         dispatch({type:"SET_POSTS",data:data})
     },[dispatch])
+
+    const UpdateLikedJokes = useCallback( item => {
+        dispatch({ type: "UPDATE_LIKED_JOKES", data: item })
+    },[dispatch])
     window.state = state
-    return <MyContext.Provider value={{ state, setUser, UpdateSavedJokes,setPosts }}>
+    return <MyContext.Provider value={{ state, setUser, UpdateSavedJokes,setPosts,UpdateLikedJokes }}>
         {children}
     </MyContext.Provider>
 }

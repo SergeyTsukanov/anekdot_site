@@ -1,3 +1,4 @@
+ 
 import { useEffect, useState } from "react"
 import Loader from "react-spinners/ClipLoader"
 import { Post } from "../MainPage/Post/Post"
@@ -40,3 +41,4 @@ export const PostComments =(props) =>{
         <div>Comments</div>
     </div>
 }
+

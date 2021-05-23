@@ -16,6 +16,10 @@ const UserSchema = new mongoose.Schema({
     savedPosts:{
         type:Array,
         require: true,
+    },
+    likedPosts:{
+        type:Array,
+        require: true,
     }
 })
 

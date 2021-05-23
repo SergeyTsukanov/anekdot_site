@@ -11,6 +11,7 @@ export const Savedposts =(props) =>{
     return <div>
         {state.user.savedPosts.map((post,key) =>
                 <Post key={key}  text={post.text}
+                likesCount ={post.likesCount}
                     title={post.title}
                     type={post.type}
                     _id={post._id} />)}

@@ -18,6 +18,7 @@ const validate = (values) => {
   }
   if (!values.password) {
     errors.password = "requied"
+  
   }
   if(values.password.length<6){
     errors.password ="too short"

@@ -16,6 +16,7 @@ const validate = (values) => {
   if (!values.password) {
     errors.password = "requied"
   }
+
   return errors;
 }
 

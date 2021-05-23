@@ -6,7 +6,7 @@ const postSchema = new mongoose.Schema({
     author:String,
     type:String,
     title:String,
-    likeCount:Number,
+    likesCount:Number,
 })
 
 module.exports = mongoose.model('Jokes',postSchema)
